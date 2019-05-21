@@ -3,10 +3,10 @@ const router = express.Router();
 const request = require('request');
 const API_KEY = process.env.API_KEY;
 
-router.get("/:difficulty", function(req, res){
+router.get("/:difficulty", function (req, res) {
     const difficulty = req.params.difficulty;
     let wordLength = "";
-    switch(difficulty){
+    switch (difficulty) {
         case "easy":
             wordLength = "????????"
             break;
@@ -22,18 +22,18 @@ router.get("/:difficulty", function(req, res){
         method: "GET",
         url: queryURL,
     }
-    request(options, function(error, response, body){
-        if(error) {
-            console.log(error);
+    request(options, function (error, response, body) {
+        if (error) {
+            //(TO-DO) log the error
         }
-        else if(!error && response.statusCode === 200){
+        else if (!error && response.statusCode === 200) {
             body = JSON.parse(body)
             res.json(body);
         }
     })
 });
 
-router.get("/details/:word", function(req, res){
+router.get("/details/:word", function (req, res) {
     const word = req.params.word;
     const queryURL = `https://wordsapiv1.p.rapidapi.com/words/${word}`;
     const options = {
@@ -44,11 +44,11 @@ router.get("/details/:word", function(req, res){
             "Accept": "application/json"
         }
     }
-    request(options, function(error,response, body){
-        if(error){
-            console.log(error);
+    request(options, function (error, response, body) {
+        if (error) {
+            //(TO-DO) log the error
         }
-        else if(!error && response.statusCode === 200){
+        else if (!error && response.statusCode === 200) {
             body = JSON.parse(body);
             res.json(body);
         }

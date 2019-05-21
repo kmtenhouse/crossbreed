@@ -7,22 +7,15 @@ module.exports = {
   //This can be done by anyone, as we are ONLY showing the pets that person has
   //We might use this when a person views their pal's stable (for example)
   findOne: function (req, res) {
-    console.log("FINDING THE USER");
-    console.log(req.session.passport);
+
     if (!req.session.passport) { //if there is no session info, user is not logged in!  reject their request
       return res.sendStatus(403);
     }
     const loggedInUser = req.session.passport.user._id; //grab the user's id from the session cookie
-    console.log("Logged in as " + loggedInUser);
 
     db.User.findById(loggedInUser) //never return any other user info!
-<<<<<<< HEAD
-      .populate({ path: 'pets', select: '_id name baseColor outlineColor gameColor level experiencePoints' })
-      .populate({ path: 'eggs', select: '_id createdOn lifeStage willHatchOn' })
-=======
       .populate({path: 'pets', select: '_id name baseColor outlineColor gameColor level experiencePoints ears antennae extraGuesses' })
       .populate({path: 'eggs', select: '_id createdOn lifeStage willHatchOn' })
->>>>>>> 6a3e40124f659caff80a9a1c874e8b0a987c1191
       .then(results => res.json(results))
       .catch(err => res.status(500).json(err));
   },
@@ -31,11 +24,10 @@ module.exports = {
   //PROTECTED ROUTES
   //USER MUST BE AUTHENTICATED FOR THESE ACTIONS
   //==========
-  //(TO-DO)
+
   // Delete one
   // NOTE: deleting a user should also delete the pets they have on the site
   delete: function (req, res) {
-    console.log(req.session.passport);
     if (!req.session.passport) { //if there is no session info, user is not logged in!  reject their request
       return res.sendStatus(403);
     }
@@ -65,11 +57,11 @@ module.exports = {
 
   // Update the specified user
   update: async function (req, res) {
-    console.log("Putting user");
+
     if (!req.session.passport) { //if there is no session info, user is not logged in!  reject their request
       return res.sendStatus(403);
     }
-    console.log("Logged in");
+
     const loggedInUser = req.session.passport.user._id; //grab the user's id from the session cookie
 
     //sanity check if the id doesn't match the route, also reject with forbidden

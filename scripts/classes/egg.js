@@ -75,7 +75,6 @@ class Egg {
         //otherwise, we contribute a single allele from mom and offer a NULL from dad
         //this confers a very high rate of genetic illness!
             else {
-                console.log("Genetic illness potential (from dad) detected!  Dad missing " + key);
                 this.dna.controlGenes.push([momControlAlleles[key], null]);
             }
         }
@@ -85,7 +84,6 @@ class Egg {
         //(again, this confers a very high rate of genetic illness)
         for(let key in dadControlAlleles) {
             if(!momControlAlleles.hasOwnProperty(key)) {
-                console.log("Genetic illness potential (from mom) detected! Mom missing " + key);
                 this.dna.controlGenes.push([null, dadControlAlleles[key]]);
             }   
         }

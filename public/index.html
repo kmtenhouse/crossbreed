@@ -44,11 +44,10 @@
     <script>
         $(document).ready(function () {
             var URL = window.location.href;
-            console.log(URL)
             var array = URL.split("/");
             var len = array.length;
             var token = array[len - 1];
-            console.log(token)
+        
             $("#formId").submit(function (event) {
 
                 event.preventDefault();

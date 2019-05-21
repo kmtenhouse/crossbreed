@@ -1,4 +1,4 @@
-const Joi = require('joi');
+const Joi = require('@hapi/joi');
 
 //This is the definition for what goes in our genes
 //Most basic gene is an array of two alleles

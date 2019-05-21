@@ -4,7 +4,6 @@ module.exports = function asyncMiddleware(handler) {
         await handler(req, res);
       } catch (ex) {
         res.send({err: ex.message});
-        //res.sendStatus(400); //next(ex);
       }
     };
   };

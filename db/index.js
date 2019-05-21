@@ -20,8 +20,10 @@ if (process.env.MONGODB_URI) {
 const db = mongoose.connection
 db.on('error', err => {
 	console.log(`There was an error connecting to the database: ${err}`);
+	//(TO-DO) log / open ticket
 })
 db.once('open', () => {
+	//(TO-DO) log
 	console.log(
 		`You have successfully connected to your mongo database: ${MONGO_URL}`
 	);
