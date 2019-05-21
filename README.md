@@ -1,4 +1,20 @@
-# crossbreed-backend
+# crossbreed API
+Don't just 'catch 'em all' -- _evolve_ them! [Crossbreed](https://github.com/kimkablitz/crossbreed-frontend) is a mobile app for iOS and Android allowing users to breed digital pets and evolve new traits over generations. Players discover their new pets' traits by playing minigames to test their might and determine which ones they may want to selectively breed.
+
+This repository is a public version of the original backend by Katherine Tenhouse, Jover Lee,  Kimmy Kablitz, and Theresa Benkman.
+
+# Current Features
+* Sign up as a new user and receive two 'starter' pets automatically
+* Breed two parent pets to generate an egg with its own unique dna -- and possibly genetic illnesses!
+* Hatch an egg and interpret the phenotype of the brand new pet from its unique dna
+* Custom DNA algorithm that encodes for phenotype traits like color, ear type, etc -- AND the method in which these traits should be expressed!
+
+# Future Features
+* Password reset route for local strategy users
+* More robust error handling and logging
+* Alternate oauth login methods 
+* Refactored color generation algorithm
+* New mutation algorithm to allow for mock 'natural' gene changes
 
 # User Routes
 ## For new users 
